@@ -5,7 +5,7 @@
 - 连接机器人
 - 建图&定位
 - 收发消息
-- Global Planner&Local Planner
+- Global Planner & Local Planner
 - 其他注意事项
 
 ## 连接机器人
