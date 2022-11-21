@@ -25,8 +25,6 @@
 
    <p align="center"><img src="./images/2021-12-20-1.png" width="70%"><br><em>@前的zdk为用户名，@后的zdk-rog为机器名</em></p>
 
-
-
    ```
    127.0.0.1      localhost
    127.0.1.1      jzrobot-x
@@ -59,6 +57,7 @@
    ```bash
    $ rostopic list
    $ rostopic echo /rosout
+   $ rosnode info /move_base  ### 查看最后一行是否error
    ```
 
 ## 建图&定位
@@ -111,7 +110,9 @@ $ rosrun cartographer_ros cartographer_occupancy_grid_node
 $ rosrun map_server map_saver -f mymap map:=/map
 ```
 
-6. 建好图后，在网页中启动导航模式并手动定位，在ssh界面启动map_server，之后就可以通过/map 这个topic来读取地图
+6. 建好图后，在网页中启动导航模式并手动定位
+
+7. 在ssh界面启动map_server，之后就可以通过/map 这个topic来读取地图
 
 ```bash
 $ rosrun map_server map_server mymap.yaml
@@ -136,7 +137,7 @@ $ rosrun map_server map_server mymap.yaml
 
 - 只需要往`/webService/cmd_vel`这个topic发送`geometry_msgs/Twist`即可
 
-## Global Planner&Local Planner
+## Global Planner & Local Planner
 
 **Global Planner**
 
@@ -178,3 +179,8 @@ self.map_sub = rospy.Subscriber('/map',OccupancyGrid,self.mapCallback)
 - 机器人速度不能超过0.2m/s，不然容易出事:warning:
 
 - 注意观察机器人左上角的急停按钮，发生突发情况可以按急停按钮
+
+- 机器人参数：
+   <p align="center"><img src="./images/param.JPG" width="100%"><br></p>
+
+
