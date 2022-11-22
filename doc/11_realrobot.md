@@ -39,28 +39,30 @@
    192.168.1.3 	jzrobot-x
    ```
 
-5. 修改自己的笔记本的`~/.bashrc`文件，在最后一行加入以下命令
+5. 修改自己的笔记本的`~/.bashrc`文件，在最后一行加入以下命令，然后source (`source ~/.bashrc`)
 
    ```bash
    export ROS_MASTER_URI=http://192.168.1.3:11311
    export ROS_IP=192.168.1.1
    ```
 
-6. source一下`~/.bashrc`文件
+
+6. (如果已有，可以跳过此步骤) 修改机器人的`~/.bashrc`文件，在最后一行加入以下命令，然后source (`source ~/.bashrc`)
 
    ```bash
-   $ source ~/.bashrc
+   export ROS_MASTER_URI=http://192.168.1.3:11311
+   export ROS_IP=192.168.1.3
    ```
 
-7. 在自己的笔记本查看机器人上的topic，如果能输出topic的信息则说明ROS层面上连接成功
+
+7. 在自己的笔记本查看机器人上的topic与node，如果能输出topic的信息则说明ROS层面上连接成功
 
    ```bash
    $ rostopic list
-   $ rostopic echo /rosout
    $ rosnode info /move_base  ### 查看最后一行是否error
    ```
 
-## 建图&定位
+## 建图 & 定位
 
 1. 在机器人上标定IMU，在ssh的界面上输入以下命令（标定好就结束了）
 
@@ -138,6 +140,11 @@ $ rosrun map_server map_server mymap.yaml
 - 只需要往`/webService/cmd_vel`这个topic发送`geometry_msgs/Twist`即可
 
 ## Global Planner & Local Planner
+
+**启动launch文件**
+
+启动course_agv_nav下的nav_real.launch
+
 
 **Global Planner**
 
