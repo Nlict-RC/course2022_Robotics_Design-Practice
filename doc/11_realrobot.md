@@ -47,7 +47,7 @@
    ```
 
 
-6. (如果已有，可以跳过此步骤) 修改机器人的`~/.bashrc`文件，在最后一行加入以下命令，然后source (`source ~/.bashrc`)
+6. (如果已有，可以跳过此步骤) 修改机器人的`~/.bashrc`文件，在最后一行加入以下命令，然后重启机器人 (在终端中ssh连接机器人，然后sudo reboot)
 
    ```bash
    export ROS_MASTER_URI=http://192.168.1.3:11311
