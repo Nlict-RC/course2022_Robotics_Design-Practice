@@ -92,25 +92,29 @@ $ source devel/setup.bash
 $ rosrun my_tf tf_broadcaster
 ```
 
-5. 建图，如果之前没有建过图或者建图效果太差需要重建，则完成这一步骤，否则跳过。
+5. 建图 (如果之前没有建过图或者建图效果太差需要重建，则完成这一步骤，否则跳过。)
 
-   首先在ssh的界面打开cartographer_occupancy_grid_node这个节点
+- 5.1 首先在ssh的界面打开cartographer_occupancy_grid_node这个节点
 
 ```bash
 $ rosrun cartographer_ros cartographer_occupancy_grid_node
 ```
 
-​		然后打开网页（192.168.1.3），在网页上操作建图（密码：admin）
+- 5.2 然后打开网页（192.168.1.3），在网页上操作建图（首先点击右上角登录，密码：admin）
 
-- 新建地图
-- 使用键盘WASD键控制小车移动，尽量覆盖整个场地
-- 网页上白色区域表示可行区域，黑色部分表示障碍物，红色表示激光雷达数据，注意要跟实物匹配
+  - 新建地图
+  - 使用键盘WASD键控制小车移动，尽量覆盖整个场地
+  - 网页上白色区域表示可行区域，黑色部分表示障碍物，红色表示激光雷达数据，注意要跟实物匹配
 
-​		建好之后使用map_server存储建好的地图（要在网页建图部分的打勾前保存地图）
+建好之后千万不要在网页中勾选保存！！！首先使用map_server存储建好的地图:
 
 ```bash
 $ rosrun map_server map_saver -f mymap map:=/map
 ```
+
+然后确认保存好的地图是否正确，最后在网页勾选保存
+
+- 5.3 关闭5.1中打开的节点
 
 6. 建好图后，在网页中启动导航模式并手动定位
 
