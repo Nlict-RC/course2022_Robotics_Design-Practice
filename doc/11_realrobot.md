@@ -124,6 +124,7 @@ $ rosrun map_server map_saver -f mymap map:=/map
 $ rosrun map_server map_server mymap.yaml
 ```
 
+
 ## 收发消息
 
 | 仿真topic/tf            | 真机topic / tf           | 类型                                                         | 作用                    |
